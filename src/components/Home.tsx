@@ -20,16 +20,16 @@ export function Home({ onNavigate }: HomeProps) {
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           >
-            <span className="text-cyan-400">Portfolio 2025</span>
+            <span className="text-cyan-400">Portfolio 2026</span>
           </motion.div>
 
           <motion.h1 
             className="text-7xl mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent"
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 2.2 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
-            Your Name Here
+           $wayam Nerkar
           </motion.h1>
           
           <motion.h2 
@@ -38,7 +38,7 @@ export function Home({ onNavigate }: HomeProps) {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Full Stack Developer & Designer
+            AIML | Full-Stack Developer | Trader & Invester
           </motion.h2>
           
           <motion.p 
@@ -47,8 +47,9 @@ export function Home({ onNavigate }: HomeProps) {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Building innovative digital experiences with cutting-edge technologies.
-            Specializing in modern web applications, data visualization, and creative solutions.
+            AI/ML enthusiast and full-stack developer passionate about
+             building scalable web applications, intelligent systems, and data-driven solutions,
+             with a strong interest in trading and investing.
           </motion.p>
 
           <motion.div 
@@ -58,18 +59,28 @@ export function Home({ onNavigate }: HomeProps) {
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <motion.button
-              onClick={() => onNavigate('projects')}
-              className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl border border-cyan-400/50 shadow-lg shadow-cyan-500/20"
+              onClick={() => onNavigate('about')}
+              className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl border border-cyan-400/50 shadow-lg shadow-cyan-500/20 text-white font-semibold"
               whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(6, 182, 212, 0.3)' }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
             >
-              View Projects
+              About Me
+            </motion.button>
+            
+            <motion.button
+              onClick={() => window.open('/resume.pdf', '_blank')}
+              className="px-8 py-4 bg-white/5 rounded-xl border border-white/20 backdrop-blur-sm text-white font-semibold"
+              whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+            >
+              Resume
             </motion.button>
             
             <motion.button
               onClick={() => onNavigate('contact')}
-              className="px-8 py-4 bg-white/5 rounded-xl border border-white/20 backdrop-blur-sm"
+              className="px-8 py-4 bg-white/5 rounded-xl border border-white/20 backdrop-blur-sm text-white font-semibold"
               whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
