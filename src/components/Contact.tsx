@@ -2,6 +2,9 @@ import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Linkedin, Github, Twitter, Send } from 'lucide-react';
 import { useState } from 'react';
 
+// Web3Forms Access Key - Replace with your own from web3forms.com
+const WEB3FORMS_ACCESS_KEY = '861eccfb-c016-4d1f-a070-4252b6b6d3c7';
+
 export function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -9,12 +12,59 @@ export function Contact() {
     subject: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    alert('Message sent! (This is a demo)');
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus('success');
+        setStatusMessage('✓ Message sent successfully! I\'ll get back to you soon.');
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+        });
+      } else {
+        setSubmitStatus('error');
+        setStatusMessage('✗ Failed to send message. Please try again.');
+        console.error('Web3Forms error:', data);
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setStatusMessage('✗ Error sending message. Please check your connection and try again.');
+      console.error('Submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+      // Clear status message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+        setStatusMessage('');
+      }, 5000);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -65,7 +115,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-white/60">Email</p>
-                  <p>your.email@example.com</p>
+                  <p>Swayamnerkar784@gmail.com</p>
                 </div>
               </motion.div>
 
@@ -127,6 +177,22 @@ export function Contact() {
             className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8"
           >
             <h3 className="text-2xl mb-6">Send a Message</h3>
+            
+            {/* Status Message */}
+            {submitStatus !== 'idle' && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className={`mb-6 p-4 rounded-xl text-center font-medium ${
+                  submitStatus === 'success'
+                    ? 'bg-green-500/20 border border-green-500/30 text-green-300'
+                    : 'bg-red-500/20 border border-red-500/30 text-red-300'
+                }`}
+              >
+                {statusMessage}
+              </motion.div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm mb-2 text-white/70">
@@ -139,7 +205,8 @@ export function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="John Doe"
                 />
               </div>
@@ -155,7 +222,8 @@ export function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="john@example.com"
                 />
               </div>
@@ -171,7 +239,8 @@ export function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Project Inquiry"
                 />
               </div>
@@ -186,20 +255,31 @@ export function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
+                  disabled={isSubmitting}
                   rows={5}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all resize-none"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/20 transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                   placeholder="Tell me about your project..."
                 />
               </div>
 
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20"
+                disabled={isSubmitting}
+                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                className="w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
               >
-                <Send className="w-5 h-5" />
-                <span>Send Message</span>
+                {isSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    <span>Sending...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    <span>Send Message</span>
+                  </>
+                )}
               </motion.button>
             </form>
           </motion.div>

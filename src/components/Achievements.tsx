@@ -3,59 +3,24 @@ import { Trophy, Award, Star, Target, Zap, Medal } from 'lucide-react';
 
 const achievements = [
   {
-    title: 'Best Developer Award 2024',
-    organization: 'Tech Conference',
-    date: '2024',
-    description: 'Recognized for outstanding contribution to open-source projects and innovative solutions.',
+    title: 'Sayadri ratna puraskar 2025',
+    organization: 'Talent katta organization , Pune ,maharashrtra',
+    date: '2025',
+    description: 'Recognized for outstanding contribution for writing a book on option decoders for Ai algorithms trading stratagy.',
     icon: Trophy,
     color: 'from-yellow-500 to-orange-600',
     gradient: 'from-yellow-500/20 to-orange-600/20',
   },
   {
-    title: 'Innovation Excellence',
-    organization: 'Industry Association',
-    date: '2023',
-    description: 'Awarded for developing a groundbreaking AI-powered analytics platform.',
-    icon: Zap,
-    color: 'from-cyan-500 to-blue-600',
-    gradient: 'from-cyan-500/20 to-blue-600/20',
-  },
-  {
-    title: 'Top Contributor',
-    organization: 'GitHub',
-    date: '2023',
-    description: 'Ranked in top 5% of global contributors with 500+ open-source contributions.',
-    icon: Star,
-    color: 'from-purple-500 to-pink-600',
-    gradient: 'from-purple-500/20 to-pink-600/20',
-  },
-  {
-    title: 'Hackathon Winner',
-    organization: 'Tech Giants Hackathon',
-    date: '2022',
-    description: 'First place among 200+ teams for developing real-time collaboration tool.',
+    title: 'Build 4 change Hackathon Winner',
+    organization: 'anjuman collage of engineeering , Sadar , nagpur',
+    date: '2025',
+    description: '2nd runner up among various teams for developing real-time collaboration tool.',
     icon: Medal,
     color: 'from-green-500 to-emerald-600',
     gradient: 'from-green-500/20 to-emerald-600/20',
   },
-  {
-    title: 'Performance Champion',
-    organization: 'Company Name',
-    date: '2022',
-    description: 'Exceeded performance metrics by 150% and delivered 20+ successful projects.',
-    icon: Target,
-    color: 'from-blue-500 to-indigo-600',
-    gradient: 'from-blue-500/20 to-indigo-600/20',
-  },
-  {
-    title: 'Community Leadership',
-    organization: 'Dev Community',
-    date: '2021',
-    description: 'Led 50+ developers in community workshops and mentorship programs.',
-    icon: Award,
-    color: 'from-red-500 to-rose-600',
-    gradient: 'from-red-500/20 to-rose-600/20',
-  },
+ 
 ];
 
 const stats = [

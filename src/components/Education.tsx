@@ -1,23 +1,32 @@
-import { motion } from 'motion/react';
+import { motion, percent } from 'motion/react';
 import { GraduationCap, Award, BookOpen } from 'lucide-react';
 
 const education = [
   {
-    degree: 'Master of Computer Science',
-    institution: 'University Name',
-    location: 'City, Country',
-    period: '2016 - 2018',
-    description: 'Specialized in Software Engineering and Artificial Intelligence. Thesis on Machine Learning applications.',
-    gpa: '3.9/4.0',
+    degree: 'BTECH in Artificial Intelligence & Machine Learning',
+    institution: 'GH Raisoni College of Engineering & Management,Nagpur (GHRCEMN)',
+    location: 'Nagpur, India',
+    period: '2023 - 2027',
+    description: 'Pursuing a Bachelor of Technology degree with a specialization in Artificial Intelligence and Machine Learning. Gaining comprehensive knowledge in AI algorithms, machine learning techniques, data science, and related technologies.',
+    gpa: '7.0/10',
     color: 'from-cyan-500 to-blue-600',
   },
   {
-    degree: 'Bachelor of Computer Science',
-    institution: 'University Name',
-    location: 'City, Country',
-    period: '2012 - 2016',
-    description: 'Focused on web development, databases, and computer networks. Active member of coding club.',
-    gpa: '3.7/4.0',
+    degree: 'HSC - Science Stream with Computer Science',
+    institution: 'Tip Top Convent School, Nagpur, India',
+    location: 'Nagpur, India',
+    period: '2021 - 2023',
+    description: 'Completed higher secondary education with a focus on science and computer science subjects.',
+    gpa: '55.60%',
+    color: 'from-blue-500 to-purple-600',
+  },
+  {
+    degree: 'SSC - Science Stream',
+    institution: 'Tip Top Convent School, Nagpur, India',
+    location: 'Nagpur, India',
+    period: 'Till 2021',
+    description: 'Completed secondary education with a focus on science subjects including Physics, Chemistry, and Mathematics.',
+    gpa: '70.40%',
     color: 'from-blue-500 to-purple-600',
   },
 ];
@@ -42,10 +51,22 @@ const certifications = [
     icon: '⚛️',
   },
   {
-    title: 'Advanced React & TypeScript',
-    issuer: 'Udemy',
-    date: '2022',
+    title: 'Microsoft Azure Developer Day',
+    issuer: 'Azure Developer Community × Reskill Academy',
+    date: '2024',
     icon: '📚',
+  },
+  {
+    title: 'Generative AI Workshop',
+    issuer: 'NxtWave',
+    date: '2025',
+    icon: '🤖',
+  },
+  {
+    title: 'Google Cloud IAM Certification',
+    issuer: 'Google Cloud',
+    date: '2025',
+    icon: '🔐',
   },
 ];
 

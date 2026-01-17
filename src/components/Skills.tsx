@@ -5,22 +5,22 @@ const skillCategories = [
     title: 'Frontend',
     color: 'from-cyan-500 to-blue-600',
     skills: [
-      { name: 'React', level: 95 },
-      { name: 'TypeScript', level: 90 },
-      { name: 'Next.js', level: 85 },
-      { name: 'Tailwind CSS', level: 95 },
-      { name: 'HTML/CSS', level: 98 },
+      { name: 'React', level: 80 },
+      { name: 'TypeScript', level: 85  },
+      { name: 'Next.js', level: 82 },
+      { name: 'Tailwind CSS', level: 75 },
+      { name: 'HTML/CSS', level: 95 },
     ],
   },
   {
     title: 'Backend',
     color: 'from-blue-500 to-purple-600',
     skills: [
-      { name: 'Node.js', level: 90 },
-      { name: 'Python', level: 85 },
-      { name: 'PostgreSQL', level: 80 },
-      { name: 'MongoDB', level: 85 },
-      { name: 'REST APIs', level: 92 },
+      { name: 'Node.js', level: 88 },
+      { name: 'Python', level: 82 },
+      { name: 'PostgreSQL', level: 70 },
+      { name: 'MongoDB', level: 71 },
+      { name: 'REST APIs', level: 60 },
     ],
   },
   {
@@ -28,18 +28,18 @@ const skillCategories = [
     color: 'from-purple-500 to-pink-600',
     skills: [
       { name: 'Git', level: 95 },
-      { name: 'Docker', level: 80 },
-      { name: 'AWS', level: 75 },
-      { name: 'Figma', level: 85 },
-      { name: 'CI/CD', level: 80 },
+      { name: 'Docker', level: 75 },
+      { name: 'AWS', level: 72 },
+      { name: 'Figma', level: 90 },
+      { name: 'CI/CD', level: 60 },
     ],
   },
 ];
 
 const otherSkills = [
-  'JavaScript', 'Redux', 'GraphQL', 'WebSocket', 'Testing (Jest, Vitest)',
-  'Webpack', 'Vite', 'Performance Optimization', 'Responsive Design',
-  'Accessibility', 'Agile/Scrum', 'UI/UX Design', 'Data Visualization',
+  'JavaScript', 'Responsive Design', 'CRUD Operations', 'WebSocket', 'Testing',
+  'Webpack', 'Git Workflow', 'Performance Optimization', 'REST API Integration',
+  'Accessibility', 'Authentication (JWT – Basic)', 'UI/UX Design ,FIGMA', 'Data Visualization',
 ];
 
 export function Skills() {
